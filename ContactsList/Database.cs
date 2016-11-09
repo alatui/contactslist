@@ -15,7 +15,7 @@ namespace ContactsList
 		public static void connect() {
 			string dbPath = Path.Combine(
 				System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal),
-				"contacts_list_1.db3"
+				"contacts_list.db3"
 			);
 
 			db = new SQLiteConnection(dbPath);

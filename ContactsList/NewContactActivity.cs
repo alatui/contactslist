@@ -20,6 +20,7 @@ namespace ContactsList
 		EditText nameEditText;
 		EditText emailEditText;
 		Button saveContactButton;
+		Contact contact;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -30,10 +31,30 @@ namespace ContactsList
 			emailEditText = FindViewById<EditText>(Resource.Id.emailEditText);
 			saveContactButton = FindViewById<Button>(Resource.Id.saveContactButton);
 
+			saveContactButton.Click+= SaveContactButton_Click;
+
 
 
 
 			// Create your application here
+		}
+
+		void SaveContactButton_Click(object sender, EventArgs e)
+		{
+
+			if (nameEditText.Text == "" || emailEditText.Text == "")
+			{
+				Toast.MakeText(this, "Name and Email are required", ToastLength.Short).Show();
+			}
+			else {
+				contact = new Contact { 
+					Name = nameEditText.Text,
+					Email = emailEditText.Text
+				};
+				Database.db.Insert(contact);
+				Finish();
+			}
+
 		}
 	}
 }
