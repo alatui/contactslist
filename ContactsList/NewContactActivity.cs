@@ -25,6 +25,10 @@ namespace ContactsList
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
+
+			//ActionBar.Hide();
+			ActionBar.SetDisplayHomeAsUpEnabled(true);
+
 			SetContentView(Resource.Layout.NewContact);
 
 			nameEditText = FindViewById<EditText>(Resource.Id.nameEditText);
@@ -37,6 +41,18 @@ namespace ContactsList
 
 
 			// Create your application here
+		}
+
+		public override bool OnOptionsItemSelected(IMenuItem item)
+		{
+			switch (item.ItemId) {
+				case Android.Resource.Id.Home:
+					Finish();
+					break;
+				default:
+					break;
+			}
+			return true;
 		}
 
 		void SaveContactButton_Click(object sender, EventArgs e)

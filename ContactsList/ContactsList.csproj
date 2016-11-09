@@ -83,6 +83,8 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\menu\main_top.xml" />
     <AndroidResource Include="Resources\layout\NewContact.axml" />
+    <AndroidResource Include="Resources\drawable\new_contact.png" />
+    <AndroidResource Include="Resources\drawable\new_contact_2x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
