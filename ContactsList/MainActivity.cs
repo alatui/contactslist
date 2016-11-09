@@ -1,15 +1,15 @@
 ﻿using Android.App;
 using Android.Widget;
 using Android.OS;
-using System.IO;
+
 using SQLite;
+using Android.Content;
 
 namespace ContactsList
 {
 	[Activity(Label = "ContactsList", MainLauncher = true, Icon = "@mipmap/icon")]
 	public class MainActivity : Activity
 	{
-		
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -27,17 +27,25 @@ namespace ContactsList
 			return true;
 		}
 
+		public override bool OnOptionsItemSelected(Android.Views.IMenuItem item)
+		{
 
+			switch (item.ItemId) {
+				case Resource.Id.main_top_new:
+					var intent = new Intent(this, typeof(NewContactActivity));
+					StartActivity(intent);
+					break;
+				default:
+					break;
+			}
+
+			return true;
+		}
 
 
 		private void setupDatabase() {
-			string dbPath = Path.Combine(
-				System.Environment.GetFolderPath( System.Environment.SpecialFolder.Personal ),
-				"contacts_list.db3"
-			);
-
-			var db = new SQLiteConnection(dbPath);
-			db.CreateTable<Contact>();//create Contact table
+			Database.connect();
+			Database.CreateTables();
 		}
 
 
