@@ -14,25 +14,30 @@ namespace ContactsList
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
-			this.CreateDatabase();
+			this.setupDatabase();
 
 			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Main);
 
 		}
 
+		public override bool OnCreateOptionsMenu(Android.Views.IMenu menu)
+		{
+			MenuInflater.Inflate(Resource.Menu.main_top, menu);
+			return true;
+		}
 
-		private void CreateDatabase() {
+
+
+
+		private void setupDatabase() {
 			string dbPath = Path.Combine(
 				System.Environment.GetFolderPath( System.Environment.SpecialFolder.Personal ),
 				"contacts_list.db3"
 			);
-			System.Diagnostics.Debug.WriteLine(dbPath);
 
 			var db = new SQLiteConnection(dbPath);
 			db.CreateTable<Contact>();//create Contact table
-
-
 		}
 
 
