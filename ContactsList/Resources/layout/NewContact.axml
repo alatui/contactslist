@@ -8,7 +8,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView1" />
+        android:id="@+id/textView1"
+        android:layout_marginTop="10dp" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,6 +25,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/emailEditText" />
+    <Button
+        android:text="Pick Image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pickImageButton" />
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/contactImageView"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="180dp" />
     <Button
         android:text="Save Contact"
         android:layout_width="match_parent"
