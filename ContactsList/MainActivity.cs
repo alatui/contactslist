@@ -7,14 +7,13 @@ using Android.Content;
 
 namespace ContactsList
 {
-	[Activity(Label = "ContactsList", MainLauncher = true, Icon = "@mipmap/icon")]
+	[Activity(Label = "Contacts List", Icon = "@mipmap/icon")]
 	public class MainActivity : Activity
 	{
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
-			this.setupDatabase();
 
 			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Main);
@@ -40,12 +39,6 @@ namespace ContactsList
 			}
 
 			return true;
-		}
-
-
-		private void setupDatabase() {
-			Database.connect();
-			Database.CreateTables();
 		}
 
 
