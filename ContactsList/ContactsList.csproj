@@ -67,6 +67,7 @@
     <Compile Include="Database.cs" />
     <Compile Include="SplashScreenActivity.cs" />
     <Compile Include="ContactsAdapter.cs" />
+    <Compile Include="DetailsActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -91,6 +92,7 @@
     <AndroidResource Include="Resources\drawable\splash_logo.png" />
     <AndroidResource Include="Resources\values\colors.xml" />
     <AndroidResource Include="Resources\layout\ContactRow.axml" />
+    <AndroidResource Include="Resources\layout\ContactDetails.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

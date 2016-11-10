@@ -25,6 +25,10 @@ namespace ContactsList
 
 			contactsAdapter = new ContactsAdapter(this);
 			contactsListView.Adapter = contactsAdapter;
+
+			contactsListView.ItemClick+= ContactsListView_ItemClick;
+
+
 		}
 
 		public override bool OnCreateOptionsMenu(Android.Views.IMenu menu)
@@ -58,6 +62,18 @@ namespace ContactsList
 		}
 
 
+		void ContactsListView_ItemClick(object sender, AdapterView.ItemClickEventArgs e)
+		{
+
+			if (e == null) {
+				return;
+			}
+
+			Intent intent = new Intent(this, typeof(DetailsActivity));
+			intent.PutExtra("contact_id", e.Id);
+			StartActivity(intent);
+
+		}
 	}
 }
 
