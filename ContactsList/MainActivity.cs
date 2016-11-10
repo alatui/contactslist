@@ -11,6 +11,9 @@ namespace ContactsList
 	public class MainActivity : Activity
 	{
 
+		ListView contactsListView;
+		ContactsAdapter contactsAdapter;
+
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -18,6 +21,10 @@ namespace ContactsList
 			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Main);
 
+			contactsListView = FindViewById<ListView>(Resource.Id.contactsListView);
+
+			contactsAdapter = new ContactsAdapter(this);
+			contactsListView.Adapter = contactsAdapter;
 		}
 
 		public override bool OnCreateOptionsMenu(Android.Views.IMenu menu)
@@ -39,6 +46,13 @@ namespace ContactsList
 			}
 
 			return true;
+		}
+
+
+		protected override void OnStart()
+		{
+			base.OnStart();
+			contactsAdapter.NotifyDataSetChanged();
 		}
 
 

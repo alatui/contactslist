@@ -68,6 +68,7 @@ namespace ContactsList
 					Email = emailEditText.Text
 				};
 				Database.db.Insert(contact);
+				ContactsAdapter.Add(contact);
 				Finish();
 			}
 

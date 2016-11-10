@@ -33,20 +33,15 @@ namespace ContactsList
 			Task startupWork = new Task(() => {
 				Database.connect();
 				Database.CreateTables();
+				ContactsAdapter._contacts = Database.db.Query<Contact>("select * from Contact");
+				ContactsAdapter.sortByName();
 			});
 
 
-			startupWork.ContinueWith(t =>
-			{
-				Task.Delay(3000);
-
-			}, context);
-
-
 			startupWork.ContinueWith(t => {
-				
-				StartActivity(new Intent(Application.Context, typeof(MainActivity)));
-
+				var intent = new Intent(Application.Context, typeof(MainActivity));
+				Task.Delay(3000);
+				StartActivity(intent);
 			}, context);
 
 			startupWork.Start();
