@@ -44,9 +44,13 @@ namespace ContactsList
 
 			TextView nameTextView = view.FindViewById<TextView>(Resource.Id.nameTextView);
 			TextView emailEditText = view.FindViewById<TextView>(Resource.Id.emailTextView);
+			ImageView contactImage = view.FindViewById<ImageView>(Resource.Id.contactImage);
 
 			nameTextView.Text = _contacts[position].Name;
 			emailEditText.Text = _contacts[position].Email;
+			if (_contacts[position].Image != null) {
+				contactImage.SetImageURI(Android.Net.Uri.Parse(_contacts[position].Image));
+			}
 
 			return view;
 		}

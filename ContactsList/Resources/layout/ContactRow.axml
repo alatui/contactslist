@@ -3,16 +3,33 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:text="Name"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/nameTextView" />
-    <TextView
-        android:text="Email"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/emailTextView" />
+        android:id="@+id/relativeLayout1">
+        <ImageView
+            android:src="@android:drawable/ic_menu_gallery"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/contactImage"
+            android:layout_marginRight="8dp"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:maxHeight="40dp" />
+        <TextView
+            android:text="Name"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/nameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/contactImage" />
+        <TextView
+            android:text="Email"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/emailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameTextView"
+            android:layout_toRightOf="@id/contactImage" />
+    </RelativeLayout>
 </LinearLayout>
