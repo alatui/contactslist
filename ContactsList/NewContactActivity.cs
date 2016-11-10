@@ -10,6 +10,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Content;
 
 namespace ContactsList
 {
@@ -69,6 +70,8 @@ namespace ContactsList
 				};
 				Database.db.Insert(contact);
 				ContactsAdapter.Add(contact);
+				Intent intent = new Intent(this,typeof(MainActivity));
+				SetResult(Result.Ok, intent);
 				Finish();
 			}
 

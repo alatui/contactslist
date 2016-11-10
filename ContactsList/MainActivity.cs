@@ -39,7 +39,7 @@ namespace ContactsList
 			switch (item.ItemId) {
 				case Resource.Id.main_top_new:
 					var intent = new Intent(this, typeof(NewContactActivity));
-					StartActivity(intent);
+					StartActivityForResult(intent,0);
 					break;
 				default:
 					break;
@@ -49,10 +49,12 @@ namespace ContactsList
 		}
 
 
-		protected override void OnStart()
+		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
 		{
-			base.OnStart();
-			contactsAdapter.NotifyDataSetChanged();
+			base.OnActivityResult(requestCode, resultCode, data);
+			if (resultCode == Result.Ok) {
+				contactsAdapter.NotifyDataSetChanged();
+			}
 		}
 
 
